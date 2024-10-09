@@ -11,9 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        beige: '#F5F5DC',
+      },
+      fontFamily: {
+        'cursive': ['Playfair Display', 'cursive'],
+        'sans': ['Roboto', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
+
 export default config;

@@ -1,101 +1,224 @@
+"use client";
+import Head from "next/head";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-export default function Home() {
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const randomImages = [
+  {
+    src: "https://i.pinimg.com/originals/04/90/2c/04902c70a42bbf22976cfef6cfe613f6.jpg",
+    name: "DeLhI",
+  },
+  {
+    src: "https://i.pinimg.com/originals/6a/37/8f/6a378f1726ec56277aa9299af88a2fef.jpg",
+    name: "ChAnDiGaRh",
+  },
+  {
+    src: "https://i.pinimg.com/originals/25/59/af/2559af6ffd033d8098ce0e6d776f21cf.jpg",
+    name: "JaiPuR",
+  },
+  {
+    src: "https://i.pinimg.com/originals/79/83/28/798328cce70ec6897739c74fd4c5dff4.jpg",
+    name: "KoLkAtA",
+  },
+];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const Home: React.FC = () => {
+  useEffect(() => {}, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-gray-100 text-gray-800">
+      <Head>
+        <title>Ujjwal Dhariwal</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 mt-16">
+        {/* Hero Section */}
+        <motion.section
+          id="hero"
+          className="text-center py-20 flex flex-col items-center"
+          initial="hidden"
+          animate="show"
+          variants={staggerContainer}
+        >
+          <motion.h2 className="text-5xl font-bold mb-4 text-gray-700" variants={fadeInUp}>
+            Singer, Songwriter, Guitarist & Composer
+          </motion.h2>
+          <motion.p className="text-xl mb-8 text-gray-600 italic" variants={fadeInUp}>
+            Creating soulful melodies and unforgettable experiences
+          </motion.p>
+          <motion.div variants={fadeInUp}>
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://ik.imagekit.io/UjjwalDhariwal/Portfolio/DSC06134.jpg?updatedAt=1728401065273"
+              alt="Ujjwal Dhariwal"
+              width={1920}
+              height={1080}
+              className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 mb-4"
+              loading="lazy"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          </motion.div>
+        </motion.section>
+
+        {/* About Section */}
+        <motion.section
+          id="about"
+          className="my-20"
+          initial="hidden"
+          whileInView="show"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
+          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+            About Me
+          </motion.h2>
+          <motion.div className="bg-white p-8 rounded-lg shadow-md" variants={fadeInUp}>
+            <p className="text-lg leading-relaxed text-gray-600">
+              Hello! I am <strong>Ujjwal Dhariwal</strong>, 22 years old, born
+              and raised in <strong>Sirsa, Haryana</strong>. Six years ago, I moved
+              to <strong>Chandigarh</strong> to pursue my dreams. Coming from a
+              <strong>musical</strong> family, my father was a <strong>harmonium</strong> player and a
+              <strong>lyricist</strong>, which greatly influenced my passion for music.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-600">
+              My journey began when I joined the Indian underground band battles. I draw inspiration from <strong>old Urdu ghazals</strong>, as well as <strong>Pakistani</strong> and <strong>Indian</strong> bands.
+              I am particularly inclined towards <strong>alt pop</strong>, <strong>alt rock</strong>, and <strong>progressive rock</strong> styles.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-600">
+              Join me on this journey through my music!
+            </p>
+          </motion.div>
+        </motion.section>
+
+        {/* Music Section */}
+        <motion.section
+          id="music"
+          className="my-20"
+          initial="hidden"
+          whileInView="show"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
+          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+            My Music
+          </motion.h2>
+          <div className="space-y-12">
+            {/* Spotify Embed */}
+            <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+              <iframe
+                style={{ borderRadius: "12px" }}
+                src="https://open.spotify.com/embed/album/2ImIQKCRRa8c1yb7YHm7mi?utm_source=generator"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Playlist Section */}
+        <motion.section
+          id="playlist"
+          className="my-20"
+          initial="hidden"
+          whileInView="show"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
+          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+            A Playlist for You ٩(◕‿◕)۶
+          </motion.h2>
+          <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+            <iframe
+              style={{ borderRadius: "12px" }}
+              src="https://open.spotify.com/embed/playlist/2gRmNIuvTMS0VyfYqVFG7n?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </motion.div>
+          <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+            <iframe
+              style={{ borderRadius: "12px" }}
+              src="https://open.spotify.com/embed/playlist/5iWAqqS9PEbqrgjTvNKzLe?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+       
+          </motion.div>
+        </motion.section>
+
+        {/* Random Photos Section */}
+        <motion.section
+          id="random-photos"
+          className="my-20"
+          initial="hidden"
+          whileInView="show"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
+          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+            Places that Inspired Me
+          </motion.h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-8">
+            {randomImages.map((image, index) => (
+              <motion.div
+                key={index}
+                className="relative"
+                variants={fadeInUp}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.name}
+                  width={800}
+                  height={600}
+                  className="rounded-lg object-cover transform hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span
+                    className="text-white text-3xl font-bold hover:text-gray-300 transition duration-300 cursor-pointer"
+                    style={{ fontFamily: "'Elsie', cursive" }}
+                  >
+                    {image.name}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="py-6 text-center text-gray-600">
+        <p>© {new Date().getFullYear()} Ujjwal Dhariwal. All rights reserved.</p>
       </footer>
     </div>
   );
-}
+};
+
+export default Home;
