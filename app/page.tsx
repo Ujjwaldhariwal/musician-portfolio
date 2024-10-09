@@ -3,6 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { FloatingActionButton } from "./FloatingActionButton";
+import { ScrollProgress } from "./ScrollProgress";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -57,10 +59,23 @@ const Home: React.FC = () => {
           animate="show"
           variants={staggerContainer}
         >
-          <motion.h2 className="text-5xl font-bold mb-4 text-gray-700" variants={fadeInUp}>
+          <motion.div
+    className="absolute inset-0 bg-gradient-to-b from-beige-200 via-yellow-100 to-gold-200 opacity-60"
+    variants={{
+      hidden: { y: "-100%" },
+      show: { y: 0 },
+    }}
+  />
+          <motion.h2
+            className="text-5xl font-bold mb-4 text-gray-700"
+            variants={fadeInUp}
+          >
             Singer, Songwriter, Guitarist & Composer
           </motion.h2>
-          <motion.p className="text-xl mb-8 text-gray-600 italic" variants={fadeInUp}>
+          <motion.p
+            className="text-xl mb-8 text-gray-600 italic"
+            variants={fadeInUp}
+          >
             Creating soulful melodies and unforgettable experiences
           </motion.p>
           <motion.div variants={fadeInUp}>
@@ -84,20 +99,31 @@ const Home: React.FC = () => {
           variants={staggerContainer}
           viewport={{ once: true }}
         >
-          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-center text-gray-700"
+            variants={fadeInUp}
+          >
             About Me
           </motion.h2>
-          <motion.div className="bg-white p-8 rounded-lg shadow-md" variants={fadeInUp}>
+          <motion.div
+            className="bg-white p-8 rounded-lg shadow-md"
+            variants={fadeInUp}
+          >
             <p className="text-lg leading-relaxed text-gray-600">
               Hello! I am <strong>Ujjwal Dhariwal</strong>, 22 years old, born
-              and raised in <strong>Sirsa, Haryana</strong>. Six years ago, I moved
-              to <strong>Chandigarh</strong> to pursue my dreams. Coming from a
-              <strong>musical</strong> family, my father was a <strong>harmonium</strong> player and a
-              <strong>lyricist</strong>, which greatly influenced my passion for music.
+              and raised in <strong>Sirsa, Haryana</strong>. Six years ago, I
+              moved to <strong>Chandigarh</strong> to pursue my dreams. Coming
+              from a<strong>musical</strong> family, my father was a{" "}
+              <strong>harmonium</strong> player and a<strong>lyricist</strong>,
+              which greatly influenced my passion for music.
             </p>
             <p className="text-lg leading-relaxed text-gray-600">
-              My journey began when I joined the Indian underground band battles. I draw inspiration from <strong>old Urdu ghazals</strong>, as well as <strong>Pakistani</strong> and <strong>Indian</strong> bands.
-              I am particularly inclined towards <strong>alt pop</strong>, <strong>alt rock</strong>, and <strong>progressive rock</strong> styles.
+              My journey began when I joined the Indian underground band
+              battles. I draw inspiration from <strong>old Urdu ghazals</strong>
+              , as well as <strong>Pakistani</strong> and{" "}
+              <strong>Indian</strong> bands. I am particularly inclined towards{" "}
+              <strong>alt pop</strong>, <strong>alt rock</strong>, and{" "}
+              <strong>progressive rock</strong> styles.
             </p>
             <p className="text-lg leading-relaxed text-gray-600">
               Join me on this journey through my music!
@@ -114,12 +140,18 @@ const Home: React.FC = () => {
           variants={staggerContainer}
           viewport={{ once: true }}
         >
-          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-center text-gray-700"
+            variants={fadeInUp}
+          >
             My Music
           </motion.h2>
           <div className="space-y-12">
             {/* Spotify Embed */}
-            <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-md"
+              variants={fadeInUp}
+            >
               <iframe
                 style={{ borderRadius: "12px" }}
                 src="https://open.spotify.com/embed/album/2ImIQKCRRa8c1yb7YHm7mi?utm_source=generator"
@@ -143,10 +175,16 @@ const Home: React.FC = () => {
           variants={staggerContainer}
           viewport={{ once: true }}
         >
-          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-center text-gray-700"
+            variants={fadeInUp}
+          >
             A Playlist for You ٩(◕‿◕)۶
           </motion.h2>
-          <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+          <motion.div
+            className="bg-white p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+          >
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/2gRmNIuvTMS0VyfYqVFG7n?utm_source=generator"
@@ -158,7 +196,10 @@ const Home: React.FC = () => {
               loading="lazy"
             ></iframe>
           </motion.div>
-          <motion.div className="bg-white p-6 rounded-lg shadow-md" variants={fadeInUp}>
+          <motion.div
+            className="bg-white p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+          >
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/5iWAqqS9PEbqrgjTvNKzLe?utm_source=generator"
@@ -169,7 +210,6 @@ const Home: React.FC = () => {
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe>
-       
           </motion.div>
         </motion.section>
 
@@ -182,16 +222,15 @@ const Home: React.FC = () => {
           variants={staggerContainer}
           viewport={{ once: true }}
         >
-          <motion.h2 className="text-4xl font-bold mb-6 text-center text-gray-700" variants={fadeInUp}>
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-center text-gray-700"
+            variants={fadeInUp}
+          >
             Places that Inspired Me
           </motion.h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 gap-8">
             {randomImages.map((image, index) => (
-              <motion.div
-                key={index}
-                className="relative"
-                variants={fadeInUp}
-              >
+              <motion.div key={index} className="relative" variants={fadeInUp}>
                 <Image
                   src={image.src}
                   alt={image.name}
@@ -214,9 +253,29 @@ const Home: React.FC = () => {
         </motion.section>
       </main>
 
-      <footer className="py-6 text-center text-gray-600">
-        <p>© {new Date().getFullYear()} Ujjwal Dhariwal. All rights reserved.</p>
+      <footer className="py-6 text-center text-gray-600 bg-gradient-to-b from-purple-50 via-pink-100 to-yellow-50">
+        <div className="container mx-auto px-4">
+          <p>
+            &copy; {new Date().getFullYear()} Ujjwal Dhariwal. All rights
+            reserved.
+          </p>
+          <motion.div className="flex justify-center space-x-4 mt-4">
+            <motion.a
+              href="#hero"
+              className="text-purple-500 hover:text-yellow-300 transition-colors duration-300"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              Back to Top
+            </motion.a>
+            {/* Add other social media links here */}
+          </motion.div>
+        </div>
       </footer>
+      <FloatingActionButton />
+      <ScrollProgress />
     </div>
   );
 };
