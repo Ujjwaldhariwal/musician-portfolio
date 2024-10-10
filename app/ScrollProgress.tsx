@@ -1,21 +1,26 @@
 import { useState, useEffect } from 'react';
 
 export function ScrollProgress() {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [progressWidth, setProgressWidth] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const width = (scrollTop / docHeight) * 100;
+      setProgressWidth(width);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll);
+      }
     };
   }, []);
-
-  const progressWidth = (scrollPosition / (document.body.scrollHeight - window.innerHeight)) * 100;
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-purple-500 h-2 shadow-lg z-50">
