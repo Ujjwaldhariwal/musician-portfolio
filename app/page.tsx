@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { FloatingActionButton } from "./FloatingActionButton";
 import { ScrollProgress } from "./ScrollProgress";
-
+import ExperienceTimeline from "./ExperienceTimeline";
 const staggerContainer = {
   hidden: { opacity: 0 },
   show: {
@@ -16,24 +16,6 @@ const staggerContainer = {
   },
 };
 
-const randomImages = [
-  {
-    src: "https://i.pinimg.com/originals/04/90/2c/04902c70a42bbf22976cfef6cfe613f6.jpg",
-    name: "DeLhI",
-  },
-  {
-    src: "https://i.pinimg.com/originals/6a/37/8f/6a378f1726ec56277aa9299af88a2fef.jpg",
-    name: "ChAnDiGaRh",
-  },
-  {
-    src: "https://i.pinimg.com/originals/25/59/af/2559af6ffd033d8098ce0e6d776f21cf.jpg",
-    name: "JaiPuR",
-  },
-  {
-    src: "https://i.pinimg.com/originals/79/83/28/798328cce70ec6897739c74fd4c5dff4.jpg",
-    name: "KoLkAtA",
-  },
-];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -131,6 +113,8 @@ const Home: React.FC = () => {
           </motion.div>
         </motion.section>
 
+
+        <ExperienceTimeline />
         {/* Music Section */}
         <motion.section
           id="music"
@@ -214,43 +198,7 @@ const Home: React.FC = () => {
         </motion.section>
 
         {/* Random Photos Section */}
-        <motion.section
-          id="random-photos"
-          className="my-20"
-          initial="hidden"
-          whileInView="show"
-          variants={staggerContainer}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-4xl font-bold mb-6 text-center text-gray-700"
-            variants={fadeInUp}
-          >
-            Places that Inspired Me
-          </motion.h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-8">
-            {randomImages.map((image, index) => (
-              <motion.div key={index} className="relative" variants={fadeInUp}>
-                <Image
-                  src={image.src}
-                  alt={image.name}
-                  width={800}
-                  height={600}
-                  className="rounded-lg object-cover transform hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span
-                    className="text-white text-3xl font-bold hover:text-gray-300 transition duration-300 cursor-pointer"
-                    style={{ fontFamily: "'Elsie', cursive" }}
-                  >
-                    {image.name}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+      
       </main>
 
       <footer className="py-6 text-center text-gray-600 bg-gradient-to-b from-purple-50 via-pink-100 to-yellow-50">
