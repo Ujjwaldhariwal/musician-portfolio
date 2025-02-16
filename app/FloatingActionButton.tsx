@@ -24,4 +24,3 @@ export function FloatingActionButton() {
   );
 }
 
-// Add this component near the end of your Home component
